@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, Renderer2, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { IEventType } from './models/event-type';
 
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(
     private vc: ViewContainerRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -61,6 +63,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   OnCaptureEvent(event: IEventType) {
-    console.log(event);
+    this.toastrService.info(`Button: ${event.cmd.toUpperCase()}<br>ID: ${event.data}`, '', {
+      enableHtml: true
+    });
   }
 }

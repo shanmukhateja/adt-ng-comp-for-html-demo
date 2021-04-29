@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { QaComponent } from './qa/qa.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +16,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     BrowserModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   entryComponents: [
     QaComponent
